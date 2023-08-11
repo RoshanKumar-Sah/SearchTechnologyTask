@@ -9,8 +9,7 @@ import { Student } from 'src/app/Student';
 })
 export class StudentTableComponent {
   @Input() 'student': Student;
-  // @Output() updateStudent: EventEmitter<Student> = new EventEmitter();
-  @Input() 'updatedStudent': Student
+  @Input() 'updatedStudent': Student;
   @Input() 'toBeDeleteddStudent': Student;
 
   'localItem': string | null;
@@ -41,15 +40,15 @@ export class StudentTableComponent {
     // localStorage.setItem("students", JSON.stringify(this.students))
   }
 
-  updateStudent(updatedStudent: Student){
+  updateStudent(updatedStudent: Student) {
     this.students[this.index] = updatedStudent;
-    localStorage.setItem("students", JSON.stringify(this.students))
+    localStorage.setItem('students', JSON.stringify(this.students));
     this.closeOverlay();
   }
 
-  deleteStudent(toBeDeleteddStudent: Student){
-    this.students.splice(this.index, 1)
-    localStorage.setItem("students", JSON.stringify(this.students))
+  deleteStudent(toBeDeleteddStudent: Student) {
+    this.students.splice(this.index, 1);
+    localStorage.setItem('students', JSON.stringify(this.students));
     this.closeOverlay();
   }
 
