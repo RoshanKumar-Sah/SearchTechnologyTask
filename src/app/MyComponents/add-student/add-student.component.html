@@ -1,0 +1,77 @@
+<section class="my-4 w-full">
+  <div class="py-1 px-2 bg-[#FFAD18] text-white w-full rounded-[4px]">
+    <p class="">Student</p>
+  </div>
+
+  <div class="border-2 border-[#A9A9FF] p-2 mt-4">
+    <form
+      class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4"
+      #studentForm="ngForm"
+      ngNativeValidate
+    >
+      <div>
+        <label for="name">Student Name</label>
+        <input name="name" [(ngModel)]="name" id="name" type="text" required />
+      </div>
+      <div>
+        <label for="grade">Grade</label>
+        <input
+          name="grade"
+          [(ngModel)]="grade"
+          id="grade"
+          type="text"
+          required
+        />
+      </div>
+      <div>
+        <label for="address">Address</label>
+        <input
+          name="address"
+          [(ngModel)]="address"
+          id="address"
+          type="text"
+          required
+        />
+      </div>
+      <div>
+        <label for="rollno">RollNo</label>
+        <input
+          name="rolllno"
+          [(ngModel)]="rollno"
+          id="rollno"
+          type="number"
+          class="appearance-none"
+          required
+        />
+      </div>
+      <div>
+        <label for="active">Active</label>
+        <select
+          name="active"
+          [(ngModel)]="active"
+          id="active"
+          class="border-2 py-1 px-2 rounded-[4px] appearance-none outline-none"
+        >
+          <option [ngValue]="true">Active</option>
+          <option [ngValue]="false">Inactive</option>
+        </select>
+      </div>
+      <div class="flex-row gap-4 items-end">
+        <button
+          type="submit"
+          class="bg-[#08790B] border-[#08790B]"
+          (click)="studentForm.valid ? onSubmit(studentForm) : null"
+        >
+          Save
+        </button>
+        <button
+          type="button"
+          class="bg-[#DC3545] border-[#DC3545]"
+          (click)="studentForm.reset({})"
+        >
+          Reset
+        </button>
+      </div>
+    </form>
+  </div>
+</section>

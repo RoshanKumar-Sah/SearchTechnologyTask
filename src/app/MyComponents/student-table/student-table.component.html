@@ -1,0 +1,39 @@
+
+
+
+<div class="relative">
+    <app-add-student (addStudent)="addStudent($event)" />
+<table class="border w-full">
+    <thead>
+        <tr class="bg-[#FFAD18] text-white text-left border-b-2 border-black">
+            <th class="px-2 py-4">S.N</th>
+            <th>Student Name</th>
+            <th>Grade</th>
+            <th>Address</th>
+            <th>RollNo</th>
+            <th>Active</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let student of students">
+            <td>{{students.indexOf(student) +1}}</td>
+            <td>{{student.name}}</td>
+            <td>{{student.grade}}</td>
+            <td>{{student.address}}</td>
+            <td>{{student.rollno}}</td>
+            <td>{{student.active ? "Active": "Inactive"}}</td>
+            <td><button type="button" class="text-white bg-[#08790B] px-3 py-1 rounded-[4px]" (click)="editStudent(student)">Edit</button></td>
+          
+        </tr>
+        
+    </tbody>
+</table>
+<div *ngIf="overlay" class="absolute top-0 z-20 bg-slate-50/90 w-full h-full p-4">
+    <p (click)="closeOverlay()" class="cursor-pointer text-right w-full text-[#DC3545]">Close</p>
+    <app-update-student [student]="oneStudent" (updateStudent)="updateStudent($event)" (deleteStudent)="deleteStudent($event)" />
+
+    </div>
+   
+</div>
+

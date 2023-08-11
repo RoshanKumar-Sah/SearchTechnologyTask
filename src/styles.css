@@ -1,1 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .customContainer {
+    @apply px-3 mx-auto box-border;
+  }
+
+  th,
+  td {
+    @apply border border-collapse px-4 py-1;
+  }
+}
+
+form div {
+  @apply flex flex-col;
+}
+
+form div label {
+  @apply font-medium;
+}
+
+form div input {
+  @apply border-2 py-1 px-2 rounded-[4px] outline-none;
+}
+
+form div button {
+  @apply text-white py-1 px-2 w-fit h-fit rounded-[4px] border-2;
+}
+
+
+@layer utilities {
+  tbody tr:nth-child(odd) {
+    @apply bg-[#F2F2F2];
+  }
+}
